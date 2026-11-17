@@ -24,9 +24,9 @@ pipeline {
         stage('Smoke Test') {
             steps {
                 bat '''
-                    "%DOCKER%" run -d -p 8081:80 --name monapp-test "%IMAGE%:%TAG%"
+                    "%DOCKER%" run -d -p 8082:80 --name monapp-test "%IMAGE%:%TAG%"
                     ping -n 4 127.0.0.1 > nul
-                    curl -I http://localhost:8081 | findstr /C:"200 OK"
+                    curl -I http://localhost:8082 | findstr /C:"200 OK"
                     if errorlevel 1 exit /b 1
                     "%DOCKER%" rm -f monapp-test
                 '''
