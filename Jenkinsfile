@@ -15,11 +15,11 @@ pipeline {
     stages {
 
         stage('Checkout SCM') {
-            steps {
-                git url: 'https://github.com/khmanar485-create/jenkins.git',
-                    branch: 'main'
-            }
-        }
+    steps {
+        git url: 'https://github.com/khmanar485-create/jenkins.git',
+            branch: 'main'
+    }
+}
 
         stage('Docker Build') {
             steps {
